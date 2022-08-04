@@ -5,8 +5,6 @@ let TopPanel = (props) => {
     let [ active, setActive ] = useState(false);
 
     let saveTeamcomp = () =>{
-        console.log(props.teamName);
-        console.log(props.hexes)
         setActive(false);
     }
 
