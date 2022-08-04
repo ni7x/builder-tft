@@ -70,7 +70,7 @@ const Card = (props) => {
         temp.parentNode.removeChild(temp);
     }
 
-    let nameForUrl = props.name.replaceAll(" ", "%20").replace(/'/g, '%27');
+    let nameForUrl = props.name.toLowerCase().replaceAll(" ", "%20").replace(/'/g, '%27');
 
     return(
 
