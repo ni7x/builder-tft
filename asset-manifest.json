@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/tft-builder/static/css/main.3e253b84.css",
+    "main.js": "/tft-builder/static/js/main.55ddd4dc.js",
+    "index.html": "/tft-builder/index.html",
+    "main.3e253b84.css.map": "/tft-builder/static/css/main.3e253b84.css.map",
+    "main.55ddd4dc.js.map": "/tft-builder/static/js/main.55ddd4dc.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3e253b84.css",
+    "static/js/main.55ddd4dc.js"
+  ]
+}
