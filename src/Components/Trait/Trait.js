@@ -103,7 +103,7 @@ const Trait = (props) => {
             </div>
 
            <div className={"traitImage style" + style} onMouseEnter={(e)=>setModal(e)} onMouseLeave={(e)=>setHovered(false)}>
-                <img alt={props.name} src={(process.env.PUBLIC_URL + "/static/traits/" + props.name + ".png")}></img>
+                <img alt={props.name} src={ process.env.PUBLIC_URL+"/static/traits/" + props.name.toLowerCase() + ".png"}></img>
            </div> 
            {style > 0 ?
             <div className="traitText">
