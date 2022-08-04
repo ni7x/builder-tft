@@ -1,3 +1,10 @@
+
+https://osiemde.github.io/tft-builder/
+
+first timing this stuff if code gets cancer then it is propably bcs the json data was giving me braindmg 
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
