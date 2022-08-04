@@ -80,7 +80,7 @@ const Card = (props) => {
             onDragStart={e=>drag(e)} 
             onDrop={e=>drop(e)} 
             onDragOver={e=>allowDrag(e)}
-            style={{backgroundImage: "url(./static/champions/"+ nameForUrl + ".png)"}}
+            style={{backgroundImage: "url("+process.env.PUBLIC_URL+"/static/champions/"+ nameForUrl + ".png)"}}
         >   
         </div>
     )
