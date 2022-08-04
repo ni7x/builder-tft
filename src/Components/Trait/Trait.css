@@ -1,0 +1,129 @@
+.style0{
+    background: url("./static/style0.png");
+    opacity: 30%;
+}
+.style1{
+    background: url("./static/style1.png");
+}
+.style2{
+    background: url("./static/style2.png");
+}
+
+.style3{
+    background: url("./static/style3.png");
+}
+
+.style4{
+    background: url("./static/style4.png");
+}
+
+.traits{
+    padding: 0 10px;
+    grid-area: traits;  
+    background-color: #212529;
+    overflow-y: auto;
+    overflow-x:hidden;
+    height: 35rem;
+}
+
+.trait{
+    height: 55px;
+    background-color:#30343f ;
+    padding: 5px;
+    border: 1px solid #495057;
+    margin-bottom: 10px;
+    border-radius: 7px;
+}
+
+.traitImage{
+    width: 55px;
+    height: 55px;
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    background-repeat: no-repeat;
+    background-size: 70%; 
+    background-position: center;
+    float:left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1px;
+}
+
+.traitImage img{
+    width: 19px;
+    height: 19px;
+    margin-bottom: 0px;
+}
+
+.traitText{
+    width: calc(100% - 70px);
+    float: left;
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.occurencies{
+    margin-top: 12.5px;
+    height: 25px;
+    padding: 3px 8px;
+    background-color: #495057;
+    color: white;
+    font-weight:600;
+    border-radius: 20%;
+    margin-right: 10px;
+    margin-left: -3px;
+}
+
+.traitInfo{
+    height: 30px;
+    font-weight: 600;
+}
+
+.name{
+  font-size: 15px;
+  color: white;
+}
+
+.stages{
+   font-size: 14px;
+   color: #6c757d;
+}
+
+
+.stages span{
+    margin-right: 7px;
+}
+
+.missing, .currentStage{
+    font-size: 14px;
+    color: white;
+}
+
+.inactive{
+    color: #6c757d;
+}
+
+.description{
+    color: white;
+    position: absolute;
+    background-color: #212529;
+    box-shadow: 0px 0px 10px -1px rgba(66, 68, 90, 1);
+    width: 260px;
+    padding: 15px 20px;
+    font-size: 12px;
+    margin: 10px;
+    white-space: pre-wrap;
+    z-index: 1;
+    margin-left: 50px;
+    margin-top: 0px;
+    border-radius: 10px;
+    border: 1px solid #495057;
+}
+
+.description b{
+    font-size: 16px;
+}
+.stageDescription{
+    color: #adb5bd;
+}
