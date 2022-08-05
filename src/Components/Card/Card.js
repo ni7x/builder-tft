@@ -8,7 +8,7 @@ const Card = (props) => {
     
     let drag = (e) => {
         if(props.draggable){
-            e.dataTransfer.setData("text", JSON.stringify({name: props.name, id:props.id, traits: props.traits, cost: props.cost}));
+            e.dataTransfer.setData("text", JSON.stringify({name: props.name, id: props.id, traits: props.traits, cost: props.cost}));
             e.dataTransfer.setData("id", e.target.id);
             e.dataTransfer.setData("parent", e.target.parentNode.className);
             e.dataTransfer.setData("comingFrom", e.target.parentNode.id);
@@ -58,7 +58,6 @@ const Card = (props) => {
                 else if(e.target.id === "remove"){
                     document.getElementById("recentlyUsed").append(document.getElementById(comingFrom).firstChild);
                     props.removeCardFromHex(comingFrom);
-                 
                 }
             }
             else if(parentClass === "cards"){
@@ -69,8 +68,6 @@ const Card = (props) => {
                 }
             }
         }
-        
-        
     }
 
     let swapElements = (el1, el2) => {
@@ -84,15 +81,13 @@ const Card = (props) => {
     let nameForUrl = props.name.toLowerCase().replaceAll(" ", "%20").replace(/'/g, '%27');
 
     return(
-
         <div id={props.name} 
             className={"card cost" + props.cost} 
             draggable={props.draggable} 
             onDragStart={e=>drag(e)} 
             onDrop={e=>drop(e)} 
             onDragOver={e=>allowDrag(e)}
-            style={{backgroundImage: "url("+process.env.PUBLIC_URL+"/static/champions/"+ nameForUrl + ".png)"}}
-        >   
+            style={{backgroundImage: "url("+process.env.PUBLIC_URL+"/static/champions/"+ nameForUrl + ".png)"}}>   
         </div>
     )
 }

@@ -4,9 +4,7 @@ import traitData from "./traitData.json";
 import "./Trait.css";
 
 const TraitList = (props) => {
-    
-    let [traitsData, setTraitsData] = useState(new Map())
-
+    let [ traitsData, setTraitsData ] = useState(new Map())
     let data = traitData;
 
     useEffect(()=>{
@@ -71,7 +69,6 @@ const TraitList = (props) => {
             return -1;
     }
 
-    
     return(
         <div className="traits">
         {Array.from(props.traitsMap).sort((a,b) => sortByStyle(a,b)).map((mapData, i)=>{

@@ -1,10 +1,9 @@
-
-.cards{
+.cards {
     grid-area: cards;
     background-color: #212529;
 }
 
-.card{
+.card {
     float: left;
     margin: 4.5px;
     height: 52px;
@@ -17,31 +16,32 @@
 
 [draggable=true] {
     cursor: pointer;
- }
-  
-.rightPanel{
+}
+
+.rightPanel {
     width: 100%;
     grid-area: rightPanel;
     text-align: center;
 }
 
-.rightPanel p{
+.rightPanel p {
     font-weight: 400;
     color: #6c757d;
     font-size: 14px;
 }
-#recentlyUsed{
+
+#recentlyUsed {
     margin: 30px 0;
     min-height: 415px;
     background-color: #30343f;
     border: 1px solid #495057;
     padding: 0px 0;
     border-radius: 10px;
-  
+
 }
 
 
-.hex{
+.hex {
     position: absolute;
     height: calc(47px * 1.1547);
     width: 47px;
@@ -51,12 +51,12 @@
     clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
 }
 
-.hex div{
+.hex div {
     margin-left: -4px;
     margin-top: 0px;
 }
 
-.outHex{
+.outHex {
     background: #ff1f2a;
     clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
     height: calc(53px * 1.1547);
@@ -64,27 +64,32 @@
     margin: 0 auto;
 }
 
-#recentlyUsed .card{
+#recentlyUsed .card {
     float: none;
     display: block;
     margin: 10px auto;
 }
-.costMoving{
+
+.costMoving {
     border-color: #495057;
 }
-.cost1{
+
+.cost1 {
     border-color: #edf2f4;
 }
-.cost2{
+
+.cost2 {
     border-color: #16db65;
 }
-.cost3{
+
+.cost3 {
     border-color: #02a9ea;
 }
-.cost4{
+
+.cost4 {
     border-color: #ff01fb;
 }
-.cost5{
+
+.cost5 {
     border-color: #faff00;
 }
-

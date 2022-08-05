@@ -24,9 +24,7 @@ const Hex = (props) => {
 
     return(
         <div className={"outerHexagon level" + (props.card !== null ? props.card.cost : "")} draggable={false}>
-            <div className="hexagon" id={props.id} onDrop={e=>drop(e)} onDragOver={e=>allowDrop(e)}>
-                
-            </div>
+            <div className="hexagon" id={props.id} onDrop={e=>drop(e)} onDragOver={e=>allowDrop(e)}></div>
         </div>
     )
 }

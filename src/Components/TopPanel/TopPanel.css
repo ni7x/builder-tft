@@ -1,7 +1,8 @@
-.topPanel{
+.topPanel {
     grid-area: topPanel;
 }
-.topPanel button{
+
+.topPanel button {
     padding: 9px 20px;
     border: 3px solid white;
     background: none;
@@ -10,52 +11,56 @@
     margin: 0px 5px;
 }
 
-.saveButton{
-    border-color: #73eedc!important;
+.saveButton {
+    border-color: #73eedc !important;
     color: #73eedc;
 }
 
-.resetButton{
-    border-color: #ffba08!important;
+.resetButton {
+    border-color: #ffba08 !important;
     color: #ffba08;
 }
 
-.resetButton:hover, .saveButton:hover{
+.resetButton:hover,
+.saveButton:hover {
     cursor: pointer;
     background-color: #343a40;
 }
 
-.isActivefalse{
+.isActivefalse {
     display: none;
 }
-.isActivetrue{
+
+.isActivetrue {
     display: flex;
 }
-.saveModal{
+
+.saveModal {
     width: 100%;
     height: 100%;
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     justify-content: center;
     align-items: center;
     z-index: 1;
-    background-color: rgba(0,0,0,0.65);
+    background-color: rgba(0, 0, 0, 0.65);
 }
-.saveBox{
+
+.saveBox {
     position: relative;
     height: 220px;
     background-color: #2b2d42;
     width: 270px;
     display: flex;
-    align-items:center;
+    align-items: center;
     border-radius: 10px;
     flex-direction: column;
     border: 3px solid #8d99ae;
     color: #8d99ae;
 }
 
-.saveBox .confirm{
+.saveBox .confirm {
     background-color: #8d99ae;
     border: 3px none #e3b5a4;
     color: white;
@@ -67,12 +72,12 @@
     font-weight: 600;
 }
 
-.saveBox .confirm:hover{
+.saveBox .confirm:hover {
     background-color: #2ec4b6;
     transition-duration: 0.3s;
 }
 
-.saveBox .close{
+.saveBox .close {
     position: absolute;
     right: -2px;
     top: 5px;
@@ -83,7 +88,8 @@
     font-size: 14px;
 
 }
-.saveBox input{
+
+.saveBox input {
     background-color: #2b2d42;
     border: 3px solid #8d99ae;
     outline: none;
@@ -96,13 +102,13 @@
     font-weight: 600;
 }
 
-.saveBox label{
+.saveBox label {
     font-size: 14px;
     margin-top: 50px;
     font-weight: 600;
     color: #edf2f4;
     align-self: self-start;
     margin-left: 40px;
-   
-   
+
+
 }

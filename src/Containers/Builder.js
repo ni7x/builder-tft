@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import TopPanel from "../Components/TopPanel/TopPanel";
 
 let Builder = () => {
-    const [hexes, setHexes] = useState(new Array(28).fill(null));
-    const [teamName, setTeamName] = useState("");
-    const [cards, setCards] = useState([]);
-    const [traitsMap, setTraitsMap] = useState(new Map());
+    const [ hexes, setHexes ] = useState(new Array(28).fill(null));
+    const [ teamName, setTeamName ] = useState("");
+    const [ cards, setCards ] = useState([]);
+    const [ traitsMap, setTraitsMap ] = useState(new Map());
 
     const addCardToHex = (cardName, hexNumber) => {
         hexNumber = parseInt(hexNumber);
@@ -22,7 +22,6 @@ let Builder = () => {
     }
 
     const swapHexes = (firstHex, firstCard,  secondHex, secondCard) => {
-        
         firstHex = parseInt(firstHex);
         secondHex = parseInt(secondHex);
         
@@ -60,6 +59,7 @@ let Builder = () => {
           ]
         })
     }
+
     const removeCardByName = (cardName) => {
         for(let i = 0; i<28; i++){
             if(hexes[i]!==null){
@@ -79,11 +79,6 @@ let Builder = () => {
             }
         }
         return false;
-    }
-
-    const clearHexesAndName = () => {
-        setHexes(new Array(28).fill(null));
-        setTeamName("");
     }
 
     let getFreeHex = (hexes) => {
@@ -118,10 +113,11 @@ let Builder = () => {
     }
 
     let trainerState = traitsMap.get("Trainer");
+
     useEffect(()=>{
         let hex = getFreeHex(hexes);
 
-        if(trainerState===2){
+        if(trainerState === 2){
            appendSpecialElement(hex, "Nomsy")
         }
         if(trainerState < 2){
@@ -143,13 +139,17 @@ let Builder = () => {
             if(i<=counter){
                 let hex = getFreeHex(hexes);
                 appendSpecialElement(hex, "Jade Statue" + i);
-
             }else{
                 removeSpecialElement("Jade Statue"+i);
             }
         }
 
     }, [jadeState, hexes])
+
+    const clearHexesAndName = () => {
+        setHexes(new Array(28).fill(null));
+        setTeamName("");
+    }
 
     return (
         <div className="App">
@@ -162,8 +162,8 @@ let Builder = () => {
             <Grid addCardToHex={addCardToHex} hexes={hexes} swapHexes={swapHexes}></Grid>
 
             <CardList removeCardFromHex={removeCardFromHex} addCardToHex={addCardToHex} swapHexes={swapHexes} 
-             cards={cards} setCards={setCards}
-             ></CardList>
+             cards={cards} setCards={setCards}>
+             </CardList>
 
             <TraitList hexes={hexes} traitsMap={traitsMap} setTraitsMap={setTraitsMap}></TraitList>
         </div>

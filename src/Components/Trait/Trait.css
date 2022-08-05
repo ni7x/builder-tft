@@ -1,61 +1,63 @@
-.style0{
+.style0 {
     background: url("./static/style0.png");
     opacity: 30%;
 }
-.style1{
+
+.style1 {
     background: url("./static/style1.png");
 }
-.style2{
+
+.style2 {
     background: url("./static/style2.png");
 }
 
-.style3{
+.style3 {
     background: url("./static/style3.png");
 }
 
-.style4{
+.style4 {
     background: url("./static/style4.png");
 }
 
-.traits{
+.traits {
     padding: 0 10px;
-    grid-area: traits;  
+    grid-area: traits;
     background-color: #212529;
     overflow-y: auto;
-    overflow-x:hidden;
+    overflow-x: hidden;
     height: 35rem;
 }
 
-.trait{
+.trait {
     height: 55px;
-    background-color:#30343f ;
+    background-color: #30343f;
     padding: 5px;
     border: 1px solid #495057;
     margin-bottom: 10px;
     border-radius: 7px;
 }
 
-.traitImage{
+.traitImage {
     width: 55px;
     height: 55px;
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     background-repeat: no-repeat;
-    background-size: 70%; 
+    background-size: 70%;
     background-position: center;
-    float:left;
+    float: left;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-right: 1px;
 }
 
-.traitImage img{
+.traitImage img {
     width: 19px;
     height: 19px;
     margin-bottom: 0px;
 }
 
-.traitText{
+.traitText {
     width: calc(100% - 70px);
     float: left;
     display: flex;
@@ -63,48 +65,49 @@
     height: 40px;
 }
 
-.occurencies{
+.occurencies {
     margin-top: 12.5px;
     height: 25px;
     padding: 3px 8px;
     background-color: #495057;
     color: white;
-    font-weight:600;
+    font-weight: 600;
     border-radius: 20%;
     margin-right: 10px;
     margin-left: -3px;
 }
 
-.traitInfo{
+.traitInfo {
     height: 30px;
     font-weight: 600;
 }
 
-.name{
-  font-size: 15px;
-  color: white;
+.name {
+    font-size: 15px;
+    color: white;
 }
 
-.stages{
-   font-size: 14px;
-   color: #6c757d;
+.stages {
+    font-size: 14px;
+    color: #6c757d;
 }
 
 
-.stages span{
+.stages span {
     margin-right: 7px;
 }
 
-.missing, .currentStage{
+.missing,
+.currentStage {
     font-size: 14px;
     color: white;
 }
 
-.inactive{
+.inactive {
     color: #6c757d;
 }
 
-.description{
+.description {
     color: white;
     position: absolute;
     background-color: #212529;
@@ -121,9 +124,10 @@
     border: 1px solid #495057;
 }
 
-.description b{
+.description b {
     font-size: 16px;
 }
-.stageDescription{
+
+.stageDescription {
     color: #adb5bd;
 }

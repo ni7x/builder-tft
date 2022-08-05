@@ -1,20 +1,20 @@
-.grid{
+.grid {
     background-color: #212529;
     grid-area: grid;
-    --s: 80px; 
-    --m: 4px;   
-    --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px); 
+    --s: 80px;
+    --m: 4px;
+    --f: calc(var(--s) * 1.732 + 4 * var(--m) - 1px);
 }
 
-.grid::before{
+.grid::before {
     content: "";
     width: calc(var(--s) / 2 + var(--m));
     float: left;
-    height: 120%; 
+    height: 120%;
     shape-outside: repeating-linear-gradient(#0000 0 calc(var(--f) - 3px), #000 0 var(--f));
 }
 
-.outerHexagon{
+.outerHexagon {
     position: relative;
     width: var(--s);
     margin: var(--m);
@@ -23,13 +23,14 @@
     clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
     background: #343a40;
     margin-bottom: calc(var(--m) - var(--s) * 0.2885);
- 
+
 }
+
 .hexagon {
     position: absolute;
     width: calc(var(--s) * 0.92);
-    height: calc((var(--s)  * 1.1547) * 0.92);
-    top: calc((var(--s)  * 1.1547) * 0.04);
+    height: calc((var(--s) * 1.1547) * 0.92);
+    top: calc((var(--s) * 1.1547) * 0.04);
     left: calc(var(--s) * 0.04);
     background: #212529;
     clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
@@ -38,29 +39,33 @@
     align-items: center;
 }
 
-.hexagon div{
+.hexagon div {
     height: 83px;
     width: 80px;
     position: absolute;
     float: left;
-  }
+}
 
-.level0{
+.level0 {
     background: #adb5bd;
 }
 
-.level1{
+.level1 {
     background: #edf2f4;
 }
-.level2{
+
+.level2 {
     background: #16db65;
 }
-.level3{
+
+.level3 {
     background: #00a8e8;
 }
-.level4{
+
+.level4 {
     background: #ff01fb;
 }
-.level5{
+
+.level5 {
     background: #faff00;
 }

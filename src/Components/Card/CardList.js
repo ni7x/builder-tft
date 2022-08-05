@@ -11,7 +11,6 @@ const CardList = (props) => {
         let notChampions = ["Nomsy", "Jade Statue"];
 
         data.forEach((champion)=>{
-            
             if(!notChampions.includes(champion.name)){
                 let card = {"name": champion.name, "cost": champion.cost, "traits": champion.traits};
                 cardList.push(card);
@@ -43,9 +42,10 @@ const CardList = (props) => {
                         </Card>
                     </div>
                 </div>
-                
+
                 <div id="recentlyUsed">
                 </div>
+
             </div>
         
             <div className="cards" id="cardsList">
@@ -57,7 +57,6 @@ const CardList = (props) => {
                                         swapHexes={props.swapHexes} addCardToHex={props.addCardToHex} setCards={props.setCards}>
                                         </Card>
                 })}
-               
             </div>
     </>
     )
