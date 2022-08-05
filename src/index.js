@@ -11,7 +11,7 @@ import {
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
- <Router>
+ <Router basename={process.env.PUBLIC_URL}>
      <Routes>
         <Route path='/' element={<Builder/>} />
     </Routes>
