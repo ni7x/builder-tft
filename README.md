@@ -3,7 +3,7 @@ https://osiemde.github.io/tft-builder/
 
 first timing this stuff if code gets cancer then it is propably bcs the json data was giving me braindmg 
 
-Need to add functionality for adding Nomsy Card and Jade Statue card when traits reach tresholds of 2 cannoner and 3/6/9/12 Jade
+Need to add functionality for adding Nomsy Card and Jade Statue card when traits reach tresholds of 2 cannoner and 3/6/9/12 Jade✅
 
 Gonna add functionality for saving and combo it with spring boot based api
 
