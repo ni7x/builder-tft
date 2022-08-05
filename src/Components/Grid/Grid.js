@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import Hex from "./Hex";
 import "./Grid.css";
 

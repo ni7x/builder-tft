@@ -43,8 +43,11 @@
     width: 80px;
     position: absolute;
     float: left;
-   
   }
+
+.level0{
+    background: #adb5bd;
+}
 
 .level1{
     background: #edf2f4;

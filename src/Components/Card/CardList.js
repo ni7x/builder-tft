@@ -10,23 +10,33 @@ const CardList = (props) => {
         let cardList = [];
         let notChampions = ["Nomsy", "Jade Statue"];
 
-        data.forEach((champion, i)=>{
+        data.forEach((champion)=>{
+            
             if(!notChampions.includes(champion.name)){
-                    let card = {"name": champion.name, "cost": champion.cost, "traits": champion.traits}
+                let card = {"name": champion.name, "cost": champion.cost, "traits": champion.traits};
+                cardList.push(card);
+            }
+            else if(champion.name === "Nomsy"){
+                let card = {"name": champion.name, "cost": 0, "traits": []}
+                cardList.push(card);
+            }
+            else if(champion.name === "Jade Statue"){
+                for(let j=1; j<5; j++){
+                    let card = {"name": champion.name + j, "cost": 0, "traits": []};
                     cardList.push(card);
+                }
             }
         })
         props.setCards(cardList.sort((a, b) => a.cost - b.cost));
-        
     }, [])
-
+    
     return(
         <>
             <div className="rightPanel">
                 <div className="outHex">
                     <div className="hex">
                         <Card key={10000} id="remove" name="remove"
-                                                traits={[]} cost={0}
+                                                traits={[]} cost={-1}
                                                 draggable={false}
                                                 removeCardFromHex={props.removeCardFromHex}
                                                 swapHexes={props.swapHexes} addCardToHex={props.addCardToHex} setCards={props.setCards}>
@@ -47,6 +57,7 @@ const CardList = (props) => {
                                         swapHexes={props.swapHexes} addCardToHex={props.addCardToHex} setCards={props.setCards}>
                                         </Card>
                 })}
+               
             </div>
     </>
     )
