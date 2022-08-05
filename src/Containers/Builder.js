@@ -92,15 +92,15 @@ let Builder = () => {
                 return i;
             }
         }
-    }
+        return null;
+    }   
 
     let appendSpecialElement = (hex, name) =>{
         let element = document.getElementById(name);
-        if(element!==null){
+        if(element!==null && hex!=null){
             if(isNameInHexes(name) === false){
                 document.getElementById(hex).append(element);
                 element.style.display = "block";
-            
                 addCardToHex({name:name, traits:[], cost:0}, hex);
             }
         }
