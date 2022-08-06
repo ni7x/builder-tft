@@ -3,19 +3,21 @@ import "./Grid.css";
 const Hex = (props) => {
 
     let drop = (e) => {
-        e.preventDefault();
+        if(e.dataTransfer.getData("type") === "card"){
+            e.preventDefault();
 
-        let newCard = JSON.parse(e.dataTransfer.getData("text"));
-        let cartId = e.dataTransfer.getData("id");
-        let parentClass = e.dataTransfer.getData("parent");
-        let comingFrom = e.dataTransfer.getData("comingFrom");
-        
-        if(parentClass !== "hexagon"){
-            props.addCardToHex(newCard ,e.target.id);
-        }else{
-            props.swapHexes(comingFrom, newCard, e.target.id, props.card);
-        } 
-        e.target.appendChild(document.getElementById(cartId));
+            let newCard = JSON.parse(e.dataTransfer.getData("card"));
+            let cartId = e.dataTransfer.getData("id");
+            let parentClass = e.dataTransfer.getData("parent");
+            let comingFrom = e.dataTransfer.getData("comingFrom");
+            
+            if(parentClass !== "hexagon"){
+                props.addCardToHex(newCard ,e.target.id);
+            }else{
+                props.swapHexes(comingFrom, newCard, e.target.id, props.card);
+            } 
+            e.target.appendChild(document.getElementById(cartId));
+        }
     }
 
     let allowDrop = (e) => {
