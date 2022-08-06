@@ -7,7 +7,7 @@
     border: 3px solid white;
     background: none;
     font-weight: 600;
-    border-radius: 10px;
+    border-radius: 5px;
     margin: 0px 5px;
 }
 
@@ -17,14 +17,9 @@
 }
 
 .resetButton {
-    border-color: #ffba08 !important;
-    color: #ffba08;
-}
-
-.resetButton:hover,
-.saveButton:hover {
-    cursor: pointer;
-    background-color: #343a40;
+    border-color: #495057 !important;
+    background-color: #495057!important;
+    color: #e9ecef;
 }
 
 .isActivefalse {

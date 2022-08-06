@@ -29,8 +29,8 @@ let TopPanel = (props) => {
                 </div>
             </div>
           
-            <button onClick={e => setActive(true)} className="saveButton">Save Board</button>
-            <button onClick={clear} className="resetButton">Clear Board</button>
+            <button onClick={e => setActive(true)} className="saveButton">Save</button>
+            <button onClick={clear} className="resetButton">Clear</button>
         </div>
     )
 }
