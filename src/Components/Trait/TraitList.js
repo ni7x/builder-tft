@@ -24,12 +24,20 @@ const TraitList = (props) => {
                     list.push(champion.traits[0]);
                     list.push(champion.traits[0]);
                 }
+                if(champion.items !== undefined){
+                    champion.items.forEach(item=>{
+                        if(item.name.split(" ")[1] === "Emblem"){
+                            list.push(item.name.split(" ")[0])
+                        }
+                    })    
+                }
+
                 champion.traits.forEach(trait=>{
-                    list.push(trait);
+                    list.push(trait);   
                 })
             }
         });
-
+    
         list.forEach(trait=>{
             let occurencies = 0;
             list.forEach(nextTrait=>{

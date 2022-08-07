@@ -5,13 +5,41 @@
 
 .card {
     float: left;
-    margin: 4.5px;
-    height: 52px;
-    width: 52px;
-    border-radius: 9px;
+    margin: 2px;
+    height: 57px;
+    width: 57px;
+    border-radius: 5px;
     background-color: #212529;
     border: 2.4px solid #212529;
     background-size: cover;
+    position: relative;
+    
+}
+
+.card .item{
+    height: 19px;
+    width: 19px;
+    box-shadow: 11px 11px 28px 0px rgba(0, 0, 0, 1);
+    border-width: 2px;
+    border-color: inherit;
+    margin: none;
+}
+
+.card .item:nth-child(1){
+    position: absolute;
+    left: -1px;
+    top: 7px;
+}
+
+.card .item:nth-child(2){
+    position: absolute;
+    left: -1px;
+    top: 28px;
+}
+
+.card .item:nth-child(3){
+    left: -1px;
+    top: 49px;
 }
 
 [draggable=true] {
@@ -49,12 +77,20 @@
     margin-top: calc(3px * 1.1547);
     margin-left: 3px;
     clip-path: polygon(0% 25%, 0% 75%, 50% 100%, 100% 75%, 100% 25%, 50% 0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.hex div {
-    margin-left: -4px;
-    margin-top: 0px;
+#remove{
+    height: 48px;
+    width: 48px;
+    margin-left: 3px;
+    margin-top: 3px;
+    background-size: cover;
+    background-position: center;
 }
+
 
 .outHex {
     background: #495057;
@@ -75,21 +111,21 @@
 }
 
 .cost1 {
-    border-color: #edf2f4;
+    border-color: #e9ecef;
 }
 
 .cost2 {
-    border-color: #16db65;
+    border-color: #06d6a0;
 }
 
 .cost3 {
-    border-color: #02a9ea;
+    border-color: #00a8e8;
 }
 
 .cost4 {
-    border-color: #ff01fb;
+    border-color: #973efd;
 }
 
 .cost5 {
-    border-color: #faff00;
+    border-color: #ffe246;
 }

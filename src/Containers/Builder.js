@@ -3,25 +3,27 @@ import Grid from "../Components/Grid/Grid";
 import TraitList from "../Components/Trait/TraitList";
 import { useEffect, useState } from "react";
 import TopPanel from "../Components/TopPanel/TopPanel";
+import ItemList from "../Components/Items/ItemList";
 
 let Builder = () => {
     const [ hexes, setHexes ] = useState(new Array(28).fill(null));
     const [ teamName, setTeamName ] = useState("");
     const [ cards, setCards ] = useState([]);
     const [ traitsMap, setTraitsMap ] = useState(new Map());
+    const [ items, setItems ] = useState([]);
 
-    const addCardToHex = (cardName, hexNumber) => {
+    const addCardToHex = (hexNumber, card) => {
         hexNumber = parseInt(hexNumber);
         setHexes(existingItems => {
           return [
             ...existingItems.slice(0, hexNumber),
-            cardName,
+            card,
             ...existingItems.slice(hexNumber + 1, 28),
           ]
         })
     }
 
-    const swapHexes = (firstHex, firstCard,  secondHex, secondCard) => {
+    const swapHexes = (firstHex, firstCard, secondHex, secondCard) => {
         firstHex = parseInt(firstHex);
         secondHex = parseInt(secondHex);
         
@@ -81,7 +83,144 @@ let Builder = () => {
         return false;
     }
 
-    let getFreeHex = (hexes) => {
+    let isItemAddable = (cardIdOrHexNum, item, type) =>{
+        let cardId = null;
+        if(type === "hexNum"){
+            cardId = hexNumToCardId(cardIdOrHexNum)
+        }else{
+            cardId = cardIdOrHexNum;
+        }
+        
+        if(cardId===undefined){
+            console.log("Some warning there eg: U can't itemize Nomsy or Jade Statue!");
+            return false;
+        }
+        let card = cards[cardId];
+        
+        if(card !== null){
+            let itemsValue = 0;
+            let isUnique = true;
+
+            if(item.name.split(" ")[1] === "Emblem"){
+                if(card.traits.includes(item.name.split(" ")[0])){
+                    console.log("Some warning there eg: this card is already " + item.name.split(" ")[0]);
+                    return false;
+                }
+            }
+
+            for(let i = 0; i<card.items.length; i++){
+                if(card.items[i].imgId === 99){
+                    itemsValue += 3;
+                }else{
+                    if(card.items[i].imgId === item.imgId){
+                        if(item.isUnique){
+                            isUnique = false;
+                            console.log("Some warning there eg: This item is unique!");
+                            return false;
+                        }
+                    }
+                    itemsValue += 1;
+                }
+            }
+
+            let itemValue = 1;
+            if(item.imgId === 99){
+                itemValue = 3;
+            }
+
+            const isAmountCorrect = itemsValue + itemValue <= 3;
+
+            if(isAmountCorrect && isUnique){
+                return true;
+            }
+        }
+        console.log("Too many items!");
+        return false; 
+    }
+
+    let hexNumToCardId = (hexNum) => {
+        return hexes[hexNum].id;
+    }
+
+    let addItemToCard = (cardId, item) => {
+            if(isItemAddable(cardId, item)){
+                let card = cards[cardId];
+                card.items.push(item);
+                cardId = parseInt(cardId);
+                setCards(existingItems => {
+                    return [
+                    ...existingItems.slice(0, cardId),
+                    card,
+                    ...existingItems.slice(cardId + 1, 63)
+                    ]
+                })
+
+                return true;
+            }
+        
+        return false; 
+    }
+
+    let addItemToHex = (hexNumber, item) => {
+        let hexObj = hexes[(hexNumber)];
+        if(addItemToCard(hexObj.id, item)){     
+            hexObj.items.push(item);
+            hexNumber = parseInt(hexNumber);
+                    
+            setHexes(existingItems => {
+                return [
+                    ...existingItems.slice(0, hexNumber),
+                    hexObj,
+                    ...existingItems.slice(hexNumber + 1, 28)
+                    ]
+                })
+                return true;
+            }
+        return false; 
+    }
+
+    let removeItemFromHex = (hexNumber, item) => {
+        hexNumber = parseInt(hexNumber);
+        let hexObj = hexes[(hexNumber)];
+       
+        if(hexObj!==null){
+            if(item === "allItems"){
+                hexObj.items = [];
+            }else{
+                hexObj.items = hexObj.items.filter(i => i.id !== item.id);
+            }
+            removeItemFromCard(hexObj.id, item);
+            hexNumber = parseInt(hexNumber);
+            setHexes(existingItems => {
+                return [
+                ...existingItems.slice(0, hexNumber),
+                hexObj,
+                ...existingItems.slice(hexNumber + 1, 28)
+                ]
+            })
+         }}
+
+         let removeItemFromCard = (cardId, item) => {
+            cardId = parseInt(cardId);
+            let card = cards[cardId];
+           
+            if(card!==null){
+                if(item === "allItems"){
+                    card.items = [];
+                }else{
+                    card.items = card.items.filter(i => i.id !== item.id);
+                }
+                setCards(existingItems => {
+                    return [
+                    ...existingItems.slice(0, cardId),
+                    card,
+                    ...existingItems.slice(cardId + 1, 63)
+                    ]
+                })
+        }}
+
+
+      let getFreeHex = (hexes) => {
         for(let i=0; i<28; i++){
             if(hexes[i] === null){
                 return i;
@@ -96,7 +235,7 @@ let Builder = () => {
             if(isNameInHexes(name) === false){
                 document.getElementById(hex).append(element);
                 element.style.display = "block";
-                addCardToHex({name:name, traits:[], cost:0}, hex);
+                addCardToHex(hex, {name:name, traits:[], cost:0});
             }
         }
        
@@ -149,23 +288,30 @@ let Builder = () => {
     const clearHexesAndName = () => {
         setHexes(new Array(28).fill(null));
         setTeamName("");
+        cards.forEach((card) => card.items = []);
     }
+
+    useEffect(()=>{
+        console.log(hexes);
+    }, [hexes])
 
     return (
         <div className="App">
             <TopPanel hexes={hexes} 
-            setTeamName={setTeamName} teamName={teamName}
-            setCards={setCards} cards={cards}
-            clear={clearHexesAndName}>    
+                setTeamName={setTeamName} teamName={teamName}
+                setCards={setCards} cards={cards}
+                clear={clearHexesAndName}>    
             </TopPanel>
 
             <Grid addCardToHex={addCardToHex} hexes={hexes} swapHexes={swapHexes}></Grid>
 
             <CardList removeCardFromHex={removeCardFromHex} addCardToHex={addCardToHex} swapHexes={swapHexes} 
-             cards={cards} setCards={setCards}>
-             </CardList>
+                cards={cards} setCards={setCards} setItems={setItems} addItemToHex={addItemToHex} removeItemFromHex={removeItemFromHex}> 
+            </CardList>
 
             <TraitList hexes={hexes} traitsMap={traitsMap} setTraitsMap={setTraitsMap}></TraitList>
+
+            <ItemList items={items} setItems={setItems} addItemToHex={addItemToHex} removeItemFromHex={removeItemFromHex} isItemAddable={isItemAddable}></ItemList>
         </div>
     );
 }

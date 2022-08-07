@@ -3,7 +3,7 @@ import "./Grid.css";
 const Hex = (props) => {
 
     let drop = (e) => {
-        if(e.dataTransfer.getData("type") === "card"){
+        if(e.dataTransfer.getData("type")==="card"){
             e.preventDefault();
 
             let newCard = JSON.parse(e.dataTransfer.getData("card"));
@@ -12,7 +12,7 @@ const Hex = (props) => {
             let comingFrom = e.dataTransfer.getData("comingFrom");
             
             if(parentClass !== "hexagon"){
-                props.addCardToHex(newCard ,e.target.id);
+                props.addCardToHex(e.target.id, newCard);
             }else{
                 props.swapHexes(comingFrom, newCard, e.target.id, props.card);
             } 
@@ -26,7 +26,9 @@ const Hex = (props) => {
 
     return(
         <div className={"outerHexagon level" + (props.card !== null ? props.card.cost : "")} draggable={false}>
-            <div className="hexagon" id={props.id} onDrop={e=>drop(e)} onDragOver={e=>allowDrop(e)}></div>
+            <div className="hexagon" id={props.id} onDrop={e=>drop(e)} onDragOver={e=>allowDrop(e)}>
+
+            </div>
         </div>
     )
 }

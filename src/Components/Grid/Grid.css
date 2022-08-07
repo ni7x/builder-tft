@@ -39,11 +39,10 @@
     align-items: center;
 }
 
-.hexagon div {
+.hexagon .card {
     height: 83px;
     width: 80px;
     position: absolute;
-    float: left;
 }
 
 .level0 {
@@ -51,11 +50,11 @@
 }
 
 .level1 {
-    background: #edf2f4;
+    background: #e9eaec;
 }
 
 .level2 {
-    background: #16db65;
+    background: #06d6a0;
 }
 
 .level3 {
@@ -63,9 +62,9 @@
 }
 
 .level4 {
-    background: #ff01fb;
+    background: #973efd;
 }
 
 .level5 {
-    background: #faff00;
+    background: #ffe246;
 }

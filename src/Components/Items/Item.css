@@ -1,0 +1,16 @@
+.ItemList{
+    grid-area: itemList;
+    margin-top: -1px;
+}
+
+.item{
+    position: relative;
+    background-color: blue;
+    width: 25px;
+    height: 25px;
+    margin: 2px;
+    background-size: cover;
+    float: left;
+    border-radius: 5px;
+    border: 1px solid #495057;
+}

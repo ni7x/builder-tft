@@ -11,6 +11,7 @@ let TopPanel = (props) => {
     let clear = () => {
         props.clear();
         props.cards.forEach(card => {
+            document.getElementById(card.name).innerHTML = "";
             document.getElementById("cardsList").appendChild(document.getElementById(card.name));
         })
         props.setCards(cards => cards.sort((a, b) => a.cost - b.cost));  
@@ -29,7 +30,7 @@ let TopPanel = (props) => {
                 </div>
             </div>
           
-            <button onClick={e => setActive(true)} className="saveButton">Save</button>
+            <button className="saveButton">Save</button>
             <button onClick={clear} className="resetButton">Clear</button>
         </div>
     )

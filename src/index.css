@@ -20,14 +20,14 @@ code {
 
 .App {
     display: grid;
-    grid-template-columns: 15rem 13rem 13rem 13rem 5rem;
+    grid-template-columns: 15rem 13rem 14rem 12rem 5rem;
     grid-template-rows: 2.5rem 23rem auto;
     grid-row-gap: 2rem;
     grid-column-gap: 2rem;
     grid-template-areas:
         ". topPanel topPanel topPanel ."
         "traits grid grid grid rightPanel"
-        "traits cards cards cards rightPanel";
+        "traits cards cards itemList rightPanel";
     width: 66rem;
     margin: 30px auto;
     background-color: #212529;

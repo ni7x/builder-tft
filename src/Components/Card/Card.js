@@ -8,7 +8,7 @@ const Card = (props) => {
     
     let drag = (e) => {
         if(props.draggable){
-            e.dataTransfer.setData("card", JSON.stringify({name: props.name, id: props.id, traits: props.traits, cost: props.cost}));
+            e.dataTransfer.setData("card", JSON.stringify({name: props.name, id: props.id, traits: props.traits, cost: props.cost, items: props.items}));
             e.dataTransfer.setData("id", e.target.id);
             e.dataTransfer.setData("parent", e.target.parentNode.className);
             e.dataTransfer.setData("type", "card");
@@ -31,7 +31,7 @@ const Card = (props) => {
     let drop = (e) => {
         e.preventDefault();
 
-        let thisCard = ({"name": props.name, "id": props.id, "traits": props.traits, "cost": props.cost});
+        let thisCard = ({"name": props.name, "id": props.id, "traits": props.traits, "cost": props.cost, "items": props.items});
         let thisHex = e.target.parentNode.id;
         let thisCardParent = e.target.parentNode.className;
         let thisCardId = e.target.id;
@@ -40,6 +40,46 @@ const Card = (props) => {
 
         let type = e.dataTransfer.getData("type");
 
+        if(type === "item"){
+            let item = JSON.parse(e.dataTransfer.getData("item"));
+            let itemId = e.dataTransfer.getData("id");
+            let placeItemComesFrom = e.dataTransfer.getData("comingFrom");
+            let itemElement = document.getElementById(itemId);
+            
+            if(e.target.id === "remove"){
+                props.removeItemFromHex(placeItemComesFrom, item);
+                itemElement.remove();
+            }
+            
+            if(thisCardParent === "hexagon"){
+                if(placeItemComesFrom === "ItemList"){
+                    if(props.addItemToHex(thisHex, item)){
+                        itemElement.parentElement.remove();
+                        thisCardElement.append(itemElement);
+
+                        item.isActive = true;
+                        let index = parseInt(item.id.slice(1));
+                        props.setItems(existingItems => {
+                            return [
+                            ...existingItems.slice(0, index),
+                            item,
+                            ...existingItems.slice(index + 1, existingItems.length)
+                            ]
+                        })
+                        const itemCopy = structuredClone(item);
+                        itemCopy.id = "i" + (index+1);
+                        itemCopy.isActive = false;
+                        props.setItems(items=>[...items, itemCopy]);
+                    }
+                } else{
+                      if(props.addItemToHex(thisHex, item)){
+                            props.removeItemFromHex(placeItemComesFrom, item);
+                            thisCardElement.append(itemElement);
+                        } 
+                    }
+             }
+            
+        }
         if(type === "card"){
             let newCard = JSON.parse(e.dataTransfer.getData("card"));
             let newCardId = e.dataTransfer.getData("id");
@@ -62,20 +102,30 @@ const Card = (props) => {
                         swapElements(newCardElement, thisCardElement);
                     }
                     else if(thisCardParent === "cards"){
+                        props.removeItemFromHex(hexNewCardComesFrom, "allItems");
+                        newCardElement.innerHTML = "";
+                        
                         props.removeCardFromHex(hexNewCardComesFrom);
-                        props.addCardToHex(thisCard, hexNewCardComesFrom);
-                        swapElements(newCardElement, thisCardElement);   
+                        props.addCardToHex(hexNewCardComesFrom, thisCard);
+                        swapElements(newCardElement, thisCardElement);
                     }
                     else if(e.target.id === "remove"){
-                        document.getElementById("recentlyUsed").append(newCardElement);
+                        props.removeItemFromHex(hexNewCardComesFrom, "allItems");
+                        newCardElement.innerHTML = "";
+                        
+                        document.getElementById("recentlyUsed").append(newCardElement);    
                         props.removeCardFromHex(hexNewCardComesFrom);
                     }
                 }
                 else if(newCardParent === "cards"){
                     if(thisCardParent === "hexagon"){
+                        props.removeItemFromHex(thisHex, "allItems");
+                        thisCardElement.innerHTML = "";
+
                         props.removeCardFromHex(thisHex);
-                        props.addCardToHex(newCard, thisHex);
+                        props.addCardToHex(thisHex, newCard);
                         swapElements(thisCardElement, newCardElement);
+                        
                     }
                 }
             }
