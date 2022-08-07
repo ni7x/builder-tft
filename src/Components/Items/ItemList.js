@@ -27,6 +27,14 @@ const ItemList = (props) => {
         if(!a.name.includes("Emblem") && b.name.includes("Emblem")){
             return -1;
         }
+        else{
+            if(a.imgId > b.imgId){
+                return 1;
+            }
+            if(a.imgId < b.imgId){
+                return -1;
+            }
+        }
         return 0;  
     }
 
