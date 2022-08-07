@@ -18,7 +18,7 @@ code {
         monospace;
 }
 
-.App {
+.Builder {
     display: grid;
     grid-template-columns: 15rem 13rem 14rem 12rem 5rem;
     grid-template-rows: 2.5rem 23rem auto;

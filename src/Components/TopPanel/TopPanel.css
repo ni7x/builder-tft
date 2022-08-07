@@ -12,14 +12,21 @@
 }
 
 .saveButton {
-    border-color: #73eedc !important;
-    color: #73eedc;
+    border-color: #6fffe9 !important;
+    color: #6fffe9;
 }
 
 .resetButton {
     border-color: #495057 !important;
     background-color: #495057!important;
     color: #e9ecef;
+}
+
+.resetButton:hover{
+    background-color: #e4b20b!important;
+    border-color: #e4b20b!important;
+    transition-duration: 0.5s;
+    color:#fff;
 }
 
 .isActivefalse {

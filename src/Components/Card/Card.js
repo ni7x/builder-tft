@@ -4,6 +4,15 @@ const Card = (props) => {
 
     let allowDrag = (e) =>{
         e.preventDefault();
+        if(e.target.id === "remove"){
+            e.target.parentElement.parentElement.style.background = "#dd1843";
+        }  
+    }
+
+    let onDragLeave = (e) =>{
+        if(e.target.id === "remove"){
+            e.target.parentElement.parentElement.style.background = "#343a40";
+        }  
     }
     
     let drag = (e) => {
@@ -21,6 +30,7 @@ const Card = (props) => {
             image.style.top = "-200px";
             image.style.backgroundImage = "url("+ process.env.PUBLIC_URL +"/static/champions/"+ nameForUrl + ".png)"
             document.body.appendChild(image);
+            
             e.dataTransfer.setDragImage(image, 34, 34);
             setTimeout(()=>image.remove(), 50);
         }else{
@@ -130,8 +140,9 @@ const Card = (props) => {
                 }
             }
         }
-        
-      
+        if(e.target.id === "remove"){
+            e.target.parentElement.parentElement.style.background = "#343a40";
+        }  
     }
 
     let swapElements = (el1, el2) => {
@@ -151,6 +162,7 @@ const Card = (props) => {
             onDragStart={e=>drag(e)} 
             onDrop={e=>drop(e)} 
             onDragOver={e=>allowDrag(e)}
+            onDragLeave={e=>onDragLeave(e)}
             style={{backgroundImage: "url("+process.env.PUBLIC_URL+"/static/champions/"+ nameForUrl + ".png)"}}>   
         </div>
     )

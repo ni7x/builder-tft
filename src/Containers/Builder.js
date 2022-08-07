@@ -296,7 +296,7 @@ let Builder = () => {
     }, [hexes])
 
     return (
-        <div className="App">
+        <div className="Builder">
             <TopPanel hexes={hexes} 
                 setTeamName={setTeamName} teamName={teamName}
                 setCards={setCards} cards={cards}
