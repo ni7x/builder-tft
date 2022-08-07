@@ -28,9 +28,8 @@ code {
         ". topPanel topPanel topPanel ."
         "traits grid grid grid rightPanel"
         "traits cards cards itemList rightPanel";
-    width: 66rem;
+    width: 67rem;
     margin: 30px auto;
-    background-color: #212529;
 }
 
 * {
