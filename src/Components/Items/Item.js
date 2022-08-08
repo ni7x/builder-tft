@@ -46,6 +46,7 @@ const Item = (props) => {
         e.dataTransfer.setData("type", "item");
         e.dataTransfer.setData("id", props.id);
         e.dataTransfer.setData("comingFrom", e.target.parentNode.parentNode.id)
+        hideDesc();
     }
 
     let timer = null;
