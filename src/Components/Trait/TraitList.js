@@ -4,7 +4,7 @@ import traitData from "./traitData.json";
 import "./Trait.css";
 
 const TraitList = (props) => {
-    let [ traitsData, setTraitsData ] = useState(new Map())
+    let [ traitsData, setTraitsData ] = useState(new Map());
     let data = traitData;
 
     useEffect(()=>{
@@ -85,7 +85,7 @@ const TraitList = (props) => {
             let effects = traitsData.get(name)[0];
             let desc = traitsData.get(name)[1];
 
-            return <Trait key={name} name={name} occurencies={occurencies} effects={effects} desc={desc}></Trait>
+            return <Trait key={name} name={name} occurencies={occurencies} effects={effects} desc={desc} showInactive={props.showInactive}></Trait>
         })}
         </div>
     )

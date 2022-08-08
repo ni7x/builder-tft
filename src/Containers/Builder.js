@@ -11,6 +11,7 @@ let Builder = () => {
     const [ cards, setCards ] = useState([]);
     const [ traitsMap, setTraitsMap ] = useState(new Map());
     const [ items, setItems ] = useState([]);
+    let [ showInactive, setShowInactive ] = useState(true);
 
     const addCardToHex = (hexNumber, card) => {
         hexNumber = parseInt(hexNumber);
@@ -307,7 +308,7 @@ let Builder = () => {
     let displayAlert = (message, color) => {
         let box = document.getElementById("alertBox");
         box.innerText = message;
-        if(color==undefined){
+        if(color === undefined){
             color = "#fff23e";
         }
         box.style.backgroundColor = color;
@@ -324,7 +325,8 @@ let Builder = () => {
                 setTeamName={setTeamName} teamName={teamName}
                 setCards={setCards} cards={cards}
                 clear={clearHexesAndName}
-                displayAlert={displayAlert}>    
+                displayAlert={displayAlert}
+                setShowInactive={setShowInactive}>  
             </TopPanel>
 
             <Grid addCardToHex={addCardToHex} hexes={hexes} swapHexes={swapHexes}></Grid>
@@ -332,7 +334,7 @@ let Builder = () => {
                 cards={cards} setCards={setCards} setItems={setItems} addItemToHex={addItemToHex} removeItemFromHex={removeItemFromHex}> 
             </CardList>
 
-            <TraitList hexes={hexes} traitsMap={traitsMap} setTraitsMap={setTraitsMap}></TraitList>
+            <TraitList hexes={hexes} traitsMap={traitsMap} setTraitsMap={setTraitsMap} showInactive={showInactive}></TraitList>
 
             <ItemList items={items} setItems={setItems} addItemToHex={addItemToHex} removeItemFromHex={removeItemFromHex} isItemAddable={isItemAddable}></ItemList>
         </div>

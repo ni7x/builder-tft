@@ -38,6 +38,7 @@
     width: 100%;
     padding: 11px 20px;
     margin-left: 5px;
+    margin-right: 10px;
     background-color: #fff23e;
     text-align: center;
     color: #212121;
@@ -52,3 +53,81 @@
     opacity: 1!important;
 }
 
+.traitsToggle{
+    display: flex;
+    align-items: center;
+}
+
+.topPanel p{
+    display: inline-block;
+    white-space: nowrap;
+    font-size: 14px;
+    color: #6c757d;
+    font-weight: 600;
+
+    line-height: 0.9;
+}
+
+#allTraits{
+    padding-right: 8px;
+}
+
+
+#activeTraits{
+    padding-left: 8px;
+}
+
+.switch {
+    display: inline-block;
+    height: 18px;
+    position: relative;
+    width: 40px;    
+}
+  
+.switch input {
+    display:none;
+  }
+  
+.slider {
+    background-color: #495057;
+    bottom: 0;
+    cursor: pointer;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: .4s;
+    width: 40px;
+  }
+  
+.slider:before {
+    background-color: #fff;
+    bottom: 3px;
+    content: "";
+    height: 12px;
+    left: 3px;
+    position: absolute;
+    transition: .2s;
+    width: 12px;
+}
+.topPanel .active{
+    color: #fff;
+}  
+input:checked + .slider {
+   /* background-color: #eb5e28; */
+}
+  
+input:checked + .slider:before {
+    transform: translateX(21px);
+}
+  
+.slider.round {
+    border-radius: 34px;
+}
+  
+.slider.round:before {
+    border-radius: 50%;
+}
+  
+  
+  

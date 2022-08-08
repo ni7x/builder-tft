@@ -94,50 +94,52 @@ const Trait = (props) => {
     }
 
     return(
-        <div className="trait" style={props.occurencies > 0 ? {display:"block"} : {display:"none"} }>
+        <div style={props.showInactive ? {display:"block"} : currentStage > 0 ? {display:"block"} : {display:"none"} }>
+            <div className="trait" style={props.occurencies > 0 ? {display:"block"} : {display:"none"} }>
 
-            <div className="description" id={"desc" + props.name} style={hovered ? {display:"block"}:{display:"none"}}>
-                <b>{props.name}</b>
-                <p>{description}</p>
-                <span className="stageDescription">{stagesDescription}</span>
-            </div>
+                <div className="description" id={"desc" + props.name} style={hovered ? {display:"block"}:{display:"none"}}>
+                    <b>{props.name}</b>
+                    <p>{description}</p>
+                    <span className="stageDescription">{stagesDescription}</span>
+                </div>
 
-           <div className={"traitImage style" + style} onMouseEnter={(e)=>setModal(e)} onMouseLeave={(e)=>setHovered(false)}>
-                <img alt={props.name} src={ process.env.PUBLIC_URL+"/static/traits/" + props.name.toLowerCase() + ".png"}></img>
-           </div> 
-           {style > 0 ?
-            <div className="traitText">
-                <div className="occurencies">
-                    {props.occurencies }
-                </div> 
-                <div className="traitInfo">
-                    <div className="name">
-                        {props.name}
+            <div className={"traitImage style" + style} onMouseEnter={(e)=>setModal(e)} onMouseLeave={(e)=>setHovered(false)}>
+                    <img alt={props.name} src={ process.env.PUBLIC_URL+"/static/traits/" + props.name.toLowerCase() + ".png"}></img>
+            </div> 
+            {style > 0 ?
+                <div className="traitText">
+                    <div className="occurencies">
+                        {props.occurencies }
                     </div> 
-                    <div className="stages">
-                        {stages.map((stage, i)=>{
-                            if(stage === currentStage){
-                                return <span className="currentStage" key={i}>{stage}</span>
-                            }else{
-                                return <span key={i}>{stage}</span>
+                    <div className="traitInfo">
+                        <div className="name">
+                            {props.name}
+                        </div> 
+                        <div className="stages">
+                            {stages.map((stage, i)=>{
+                                if(stage === currentStage){
+                                    return <span className="currentStage" key={i}>{stage}</span>
+                                }else{
+                                    return <span key={i}>{stage}</span>
+                                }
                             }
-                        }
-                        )}
+                            )}
+                        </div>
+                    </div>
+                </div>:
+                <div className="traitText inactive">
+                    <div className="traitInfo">
+                        <div className="name inactive">
+                            {props.name}
+                        </div> 
+                        <div className="stages">
+                            {props.occurencies } / {nextStage}
+                        </div>
                     </div>
                 </div>
-            </div>:
-            <div className="traitText inactive">
-                <div className="traitInfo">
-                    <div className="name inactive">
-                        {props.name}
-                    </div> 
-                    <div className="stages">
-                        {props.occurencies } / {nextStage}
-                    </div>
-                </div>
+            }
+            
             </div>
-           }
-           
         </div>
     )
 }

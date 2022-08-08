@@ -18,11 +18,34 @@ let TopPanel = (props) => {
         props.displayAlert("Saved!", "#6fffe9");
     }
 
+    let setSwitch = () => {
+        props.setShowInactive(prev=>!prev);
+        const all = document.getElementById("allTraits");
+        const act = document.getElementById("activeTraits");
+        if(all.classList.contains("active")){
+            all.classList.remove("active");
+            act.classList.add("active");
+        }else{
+            act.classList.remove("active");
+            all.classList.add("active");
+        }
+    }
+
     return(
         <div className="topPanel">
             <button className="saveButton" onClick={save}>Save</button>
-            <button onClick={clear} className="resetButton">Clear</button>
+            <button onClick={clear} className="resetButton">Clear</button> 
+            
             <div id="alertBox"></div>
+            
+            <div className="traitsToggle">
+            <p id="allTraits" className="active">All Traits</p>
+                <label className="switch" htmlFor="checkbox">
+                    <input type="checkbox" id="checkbox" onChange={setSwitch}/>
+                    <div className="slider round"></div>
+                </label>
+            <p id="activeTraits">Active Only</p>
+            </div>
         </div>
     )
 }

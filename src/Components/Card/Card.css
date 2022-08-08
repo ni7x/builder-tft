@@ -43,6 +43,32 @@
     top: 49px;
 }
 
+
+.costMoving {
+    border-color: #495057;
+}
+
+.cost1 {
+    border-color: #e9ecef;
+}
+
+.cost2 {
+    border-color: #06d6a0;
+}
+
+.cost3 {
+    border-color: #00a8e8;
+}
+
+.cost4 {
+    border-color: #973efd;
+}
+
+.cost5 {
+    border-color: #ffe246;
+}
+
+
 [draggable=true] {
     cursor: pointer;
 }
@@ -105,28 +131,4 @@
     float: none;
     display: block;
     margin: 7px auto;
-}
-
-.costMoving {
-    border-color: #495057;
-}
-
-.cost1 {
-    border-color: #e9ecef;
-}
-
-.cost2 {
-    border-color: #06d6a0;
-}
-
-.cost3 {
-    border-color: #00a8e8;
-}
-
-.cost4 {
-    border-color: #973efd;
-}
-
-.cost5 {
-    border-color: #ffe246;
 }
