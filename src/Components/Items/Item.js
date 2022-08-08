@@ -47,10 +47,26 @@ const Item = (props) => {
         e.dataTransfer.setData("id", props.id);
         e.dataTransfer.setData("comingFrom", e.target.parentNode.parentNode.id)
     }
+
+    let timer = null;
+
+    let showDesc = () => {
+        timer = setTimeout(()=>{
+            setDescState(true);
+        }, 500)
+        
+    }
+
+    let hideDesc = () => {
+        if (timer) {
+            window.clearTimeout(timer)
+        }
+        setDescState(false);
+    }
     
 
     return(
-        <div onMouseEnter={e=>setDescState(true)} onMouseLeave={e=>setDescState(false)} className="itemContainer">
+        <div onMouseEnter={showDesc} onMouseLeave={hideDesc} className="itemContainer">
             <div 
                 className="item"
                 style={{backgroundImage: "url(" + process.env.PUBLIC_URL + "/static/items/" + props.imgId + ".png"}}

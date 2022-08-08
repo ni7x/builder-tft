@@ -25,11 +25,91 @@ code {
     grid-row-gap: 2rem;
     grid-column-gap: 2rem;
     grid-template-areas:
-        ". topPanel topPanel topPanel ."
+        "someLogoOrSth topPanel topPanel topPanel infoButton"
         "traits grid grid grid rightPanel"
         "traits cards cards itemList rightPanel";
     width: 65.5rem;
     margin: 30px auto;
+}
+
+#showBasicInfo{
+    grid-area: infoButton;
+    background: none;
+    border: none;
+    color: #ffff3f;
+    font-size: 14px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#showBasicInfo i{
+    padding: 7px 10px;
+    border-radius: 20%;
+    border: 3px solid #ffff3f;
+}
+
+#basicInfoModal{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(33, 37, 41, 0.95);
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.basicInfo{
+    background-color: #343a40;
+    height: 530px;
+    width: 550px;
+    border-radius: 5px;
+    padding: 15px 30px;
+    color: #dee2e6;
+    line-height: 1.61;
+    font-size: 15px;
+    border: 1px solid #495057;
+}
+
+#basicInfoModal button{
+    margin-top: 30px;
+    background-color: #495057;
+    font-weight: 600;
+    border-radius: 5px;
+    border: none;
+    width: 49%;
+    height: 50px;
+    color: #fff;
+}
+
+.thankU{
+    margin-left: 2%;
+    background-color: #ff5d73!important;
+}
+
+.championSpan{
+    color: #00ffff;
+    font-weight: 600;
+}
+
+.itemSpan{
+    color: #fff200;
+    font-weight: 600;
+}
+
+.specialUnitsSpan{
+    color: #0aff99;
+    font-weight: 600;
+}
+
+small{
+    display: block;
+    font-size: 8px;
 }
 
 * {

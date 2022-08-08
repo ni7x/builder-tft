@@ -11,7 +11,7 @@ let Builder = () => {
     const [ cards, setCards ] = useState([]);
     const [ traitsMap, setTraitsMap ] = useState(new Map());
     const [ items, setItems ] = useState([]);
-    let [ showInactive, setShowInactive ] = useState(true);
+    const [ showInactive, setShowInactive ] = useState(true);
 
     const addCardToHex = (hexNumber, card) => {
         hexNumber = parseInt(hexNumber);
@@ -316,11 +316,43 @@ let Builder = () => {
 
         setTimeout(()=>{
                 box.className = "";
-         }, "3000")
+         }, "2600")
+    }
+
+    const toggleInfoModal = () => {
+        let modal = document.getElementById("basicInfoModal");
+        if(modal.style.display === "flex"){
+            modal.style.display = "none";
+        }else{
+            modal.style.display = "flex";
         }
+    }
+
 
     return (
         <div className="Builder">
+            <div id="basicInfoModal">
+                <div className="basicInfo">
+                    <p>You can drag <span className="championSpan">champion</span> and drop it on any grid hex.</p>
+                    <p>Each champion has it's own traits set. Summary of all placed on grid champions' traits is on the left.</p>
+                    <p><span className="itemSpan">Items</span> are also draggable. U can drop them on champions that are currently on grid.</p>
+                    <p>
+                        U can place up to 3 items on each champion. 
+                        There are some exceptions though. 
+                        Some items are unique and some can take more space than 1.
+                        There are also emblems - items that give holder given trait.
+                        Emblems can't be placed on champions that have given trait already.
+                        Also, you can't place item on special unit.
+                    </p>
+                    <p>Special units - <span className="specialUnitsSpan">Jade Statues</span> and <span className="specialUnitsSpan">Nomsy</span> are cards that are summoned when respectively Jade and Trainer thresholds are met.</p>
+                    <p>To remove <span className="championSpan">champion</span> or <span className="itemSpan">item</span> - drag them on the hex with trash bin image in top right. Removing champion also removes it's items.</p>
+                    <small>That was a lot of typing for no reason~~</small>
+                   
+                    <button onClick={toggleInfoModal}>Got it!</button>
+                    <button onClick={toggleInfoModal} className="thankU">Fuck off</button>
+                </div>
+            </div>
+            <button id="showBasicInfo" onClick={toggleInfoModal}><i class="fa-solid fa-question"></i></button>
             <TopPanel hexes={hexes} 
                 setTeamName={setTeamName} teamName={teamName}
                 setCards={setCards} cards={cards}
