@@ -55,12 +55,13 @@ const Card = (props) => {
             let itemId = e.dataTransfer.getData("id");
             let placeItemComesFrom = e.dataTransfer.getData("comingFrom");
             let itemElement = document.getElementById(itemId);
-            
             if(e.target.id === "remove"){
-                props.removeItemFromHex(placeItemComesFrom, item);
-                itemElement.remove();
+                if(placeItemComesFrom !== "ItemList"){
+                    props.removeItemFromHex(placeItemComesFrom, item);
+                    itemElement.remove();
+                }
+                e.target.parentElement.parentElement.style.background = "#343a40";
             }
-            
             if(thisCardParent === "hexagon"){
                 if(placeItemComesFrom === "ItemList"){
                     if(props.addItemToHex(thisHex, item)){
@@ -81,6 +82,7 @@ const Card = (props) => {
                         itemCopy.isActive = false;
                         props.setItems(items=>[...items, itemCopy]);
                     }
+                    
                 } else{
                       if(props.addItemToHex(thisHex, item)){
                             props.removeItemFromHex(placeItemComesFrom, item);
@@ -122,7 +124,7 @@ const Card = (props) => {
                     else if(e.target.id === "remove"){
                         props.removeItemFromHex(hexNewCardComesFrom, "allItems");
                         newCardElement.innerHTML = "";
-                        
+                        e.target.parentElement.parentElement.style.background = "#343a40";
                         document.getElementById("recentlyUsed").append(newCardElement);    
                         props.removeCardFromHex(hexNewCardComesFrom);
                     }
@@ -140,9 +142,6 @@ const Card = (props) => {
                 }
             }
         }
-        if(e.target.id === "remove"){
-            e.target.parentElement.parentElement.style.background = "#343a40";
-        }  
     }
 
     let swapElements = (el1, el2) => {

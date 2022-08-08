@@ -4,10 +4,6 @@ import { useState } from "react";
 let TopPanel = (props) => {
     let [ active, setActive ] = useState(false);
 
-    let saveTeamcomp = () =>{
-        setActive(false);
-    }
-
     let clear = () => {
         props.clear();
         props.cards.forEach(card => {
@@ -19,19 +15,9 @@ let TopPanel = (props) => {
 
     return(
         <div className="topPanel">
-            <div className={"saveModal isActive" + active}>
-                <div className="saveBox">
-                    <button className="close" onClick={e=>setActive(false)}>
-                        <i className="fa-solid fa-x"></i>
-                    </button>
-                    <label>Name: </label>
-                    <input onChange={e=>props.setTeamName(e.target.value)} value={props.teamName}></input>
-                    <button className="confirm" onClick={saveTeamcomp}>Confirm</button>
-                </div>
-            </div>
-          
             <button className="saveButton">Save</button>
-            <button onClick={clear} className="resetButton">Clear</button>
+            <button onClick={ clear } className="resetButton">Clear</button>
+            <div id="alertBox"></div>
         </div>
     )
 }

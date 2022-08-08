@@ -14,3 +14,50 @@
     border-radius: 5px;
     border: 1px solid #495057;
 }
+
+
+.descStatefalse{
+    display: none;
+}
+.descStatetrue{
+    display: block;
+}
+.itemDesc{
+    position: absolute;
+    font-size: 12px;
+    background-color: black;
+    z-index: 1;
+    height: auto;
+    width: 200px;
+    padding: 10px 15px;
+    margin-top: 33px;
+    margin-left: -100px;
+    color: #adb5bd;
+    border: 1px solid #495057;
+    background-color: #212529;
+    box-shadow: 0px 0px 10px -1px rgba(66, 68, 90, 1);
+    border-radius: 10px;
+}
+
+.itemDesc p{
+    padding: none;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    margin: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+}
+
+.itemDesc i{
+    font-weight: 400;
+    font-size: 12px;
+    color: #adb5bd;
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+}
+
+.itemContainer{
+    float: left;
+}

@@ -91,8 +91,8 @@ let Builder = () => {
             cardId = cardIdOrHexNum;
         }
         
-        if(cardId===undefined){
-            console.log("Some warning there eg: U can't itemize Nomsy or Jade Statue!");
+        if(cardId === undefined){
+            displayAlert("U can't itemize Nomsy and Jade Statue!");
             return false;
         }
         let card = cards[cardId];
@@ -103,7 +103,7 @@ let Builder = () => {
 
             if(item.name.split(" ")[1] === "Emblem"){
                 if(card.traits.includes(item.name.split(" ")[0])){
-                    console.log("Some warning there eg: this card is already " + item.name.split(" ")[0]);
+                    displayAlert(card.name +" is " + item.name.split(" ")[0] +" already!");
                     return false;
                 }
             }
@@ -115,7 +115,7 @@ let Builder = () => {
                     if(card.items[i].imgId === item.imgId){
                         if(item.isUnique){
                             isUnique = false;
-                            console.log("Some warning there eg: This item is unique!");
+                            displayAlert(item.name +" is unique!");
                             return false;
                         }
                     }
@@ -127,14 +127,23 @@ let Builder = () => {
             if(item.imgId === 99){
                 itemValue = 3;
             }
-
             const isAmountCorrect = itemsValue + itemValue <= 3;
-
+            if(isAmountCorrect === false){   
+                if(card.items.length === 1){
+                    displayAlert("Too many items! Keep in mind that TG counts as 3 items.");
+                    return false
+                }
+                else{
+                    displayAlert("Too many items!");
+                    return false;
+                }
+            }
+            
             if(isAmountCorrect && isUnique){
                 return true;
             }
         }
-        console.log("Too many items!");
+        
         return false; 
     }
 
@@ -295,6 +304,17 @@ let Builder = () => {
         console.log(hexes);
     }, [hexes])
 
+    let displayAlert = (message) => {
+        let box = document.getElementById("alertBox");
+        box.innerText = message;
+
+        box.className = "fadeIn";
+
+        setTimeout(()=>{
+                box.className = "";
+         }, "3000")
+        }
+
     return (
         <div className="Builder">
             <TopPanel hexes={hexes} 
@@ -304,7 +324,6 @@ let Builder = () => {
             </TopPanel>
 
             <Grid addCardToHex={addCardToHex} hexes={hexes} swapHexes={swapHexes}></Grid>
-
             <CardList removeCardFromHex={removeCardFromHex} addCardToHex={addCardToHex} swapHexes={swapHexes} 
                 cards={cards} setCards={setCards} setItems={setItems} addItemToHex={addItemToHex} removeItemFromHex={removeItemFromHex}> 
             </CardList>

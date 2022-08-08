@@ -3,7 +3,7 @@ import "./Grid.css";
 const Hex = (props) => {
 
     let drop = (e) => {
-        if(e.dataTransfer.getData("type")==="card"){
+        if(e.dataTransfer.getData("type") === "card"){
             e.preventDefault();
 
             let newCard = JSON.parse(e.dataTransfer.getData("card"));
@@ -16,14 +16,18 @@ const Hex = (props) => {
             }else{
                 props.swapHexes(comingFrom, newCard, e.target.id, props.card);
             } 
-            e.target.style.backgroundColor = "#212529";
             e.target.appendChild(document.getElementById(cartId));
         }
+        e.target.style.backgroundColor = "#212529";
     }
 
     let allowDrop = (e) => {
-        e.preventDefault();
-        e.target.style.backgroundColor = "#495057";
+        
+        if(e.dataTransfer.types.includes("card")){
+            e.preventDefault();
+            e.target.style.backgroundColor = "#495057";
+        }
+      
     }
 
     let onDragLeave = (e) => {

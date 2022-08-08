@@ -354,7 +354,7 @@
     {
       "id": 99,
       "name": "Thief's Gloves",
-      "description": "At the beginning of each planning phase, the holder equips 2 temporary items. Temporary items increase in power based on your player level. [Consumes Three Item Slots]",
+      "description": "At the beginning of each planning phase, the holder equips 2 temporary items. Temporary items increase in power based on your player level. ",
       "isUnique": false,
       "isElusive": false,
       "isArtifact": false

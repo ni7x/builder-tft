@@ -1,6 +1,7 @@
 .cards {
     grid-area: cards;
     background-color: #212529;
+    margin-left: 2px;
 }
 
 .card {
@@ -103,7 +104,7 @@
 #recentlyUsed .card {
     float: none;
     display: block;
-    margin: 10px auto;
+    margin: 7px auto;
 }
 
 .costMoving {
