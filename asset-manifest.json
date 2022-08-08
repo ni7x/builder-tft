@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/tft-builder/static/css/main.8547ad5c.css",
-    "main.js": "/tft-builder/static/js/main.64a394f3.js",
+    "main.css": "/tft-builder/static/css/main.b06099c3.css",
+    "main.js": "/tft-builder/static/js/main.54fecb4e.js",
     "index.html": "/tft-builder/index.html",
-    "main.8547ad5c.css.map": "/tft-builder/static/css/main.8547ad5c.css.map",
-    "main.64a394f3.js.map": "/tft-builder/static/js/main.64a394f3.js.map"
+    "main.b06099c3.css.map": "/tft-builder/static/css/main.b06099c3.css.map",
+    "main.54fecb4e.js.map": "/tft-builder/static/js/main.54fecb4e.js.map"
   },
   "entrypoints": [
-    "static/css/main.8547ad5c.css",
-    "static/js/main.64a394f3.js"
+    "static/css/main.b06099c3.css",
+    "static/js/main.54fecb4e.js"
   ]
 }
