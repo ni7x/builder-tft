@@ -49,6 +49,10 @@ const Card = (props) => {
         let thisCardElement = document.getElementById(thisCardId);
 
         let type = e.dataTransfer.getData("type");
+        
+        if(e.target.id === "remove"){
+            e.target.parentElement.parentElement.style.background = "#343a40";
+        }
 
         if(type === "item"){
             let item = JSON.parse(e.dataTransfer.getData("item"));
@@ -124,7 +128,7 @@ const Card = (props) => {
                     else if(e.target.id === "remove"){
                         props.removeItemFromHex(hexNewCardComesFrom, "allItems");
                         newCardElement.innerHTML = "";
-                        e.target.parentElement.parentElement.style.background = "#343a40";
+                        
                         document.getElementById("recentlyUsed").append(newCardElement);    
                         props.removeCardFromHex(hexNewCardComesFrom);
                     }

@@ -10,13 +10,18 @@ let TopPanel = (props) => {
             document.getElementById(card.name).innerHTML = "";
             document.getElementById("cardsList").appendChild(document.getElementById(card.name));
         })
-        props.setCards(cards => cards.sort((a, b) => a.cost - b.cost));  
+        props.setCards(cards => cards.sort((a, b) => a.cost - b.cost));
+        props.displayAlert("Cleaning done!", "#edf6f9");
+    }
+
+    let save = () => {
+        props.displayAlert("Saved!", "#6fffe9");
     }
 
     return(
         <div className="topPanel">
-            <button className="saveButton">Save</button>
-            <button onClick={ clear } className="resetButton">Clear</button>
+            <button className="saveButton" onClick={save}>Save</button>
+            <button onClick={clear} className="resetButton">Clear</button>
             <div id="alertBox"></div>
         </div>
     )

@@ -30,7 +30,7 @@
     height: auto;
     width: 200px;
     padding: 10px 15px;
-    margin-top: 33px;
+    margin-top: 34px;
     margin-left: -100px;
     color: #adb5bd;
     border: 1px solid #495057;
@@ -41,7 +41,7 @@
 
 .itemDesc p{
     padding: none;
-    margin-top: 0px;
+    margin-top: 0px!important;
     margin-bottom: 10px;
     margin: none;
     font-weight: 600;

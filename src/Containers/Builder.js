@@ -138,7 +138,7 @@ let Builder = () => {
                     return false;
                 }
             }
-            
+
             if(isAmountCorrect && isUnique){
                 return true;
             }
@@ -304,10 +304,13 @@ let Builder = () => {
         console.log(hexes);
     }, [hexes])
 
-    let displayAlert = (message) => {
+    let displayAlert = (message, color) => {
         let box = document.getElementById("alertBox");
         box.innerText = message;
-
+        if(color==undefined){
+            color = "#fff23e";
+        }
+        box.style.backgroundColor = color;
         box.className = "fadeIn";
 
         setTimeout(()=>{
@@ -320,7 +323,8 @@ let Builder = () => {
             <TopPanel hexes={hexes} 
                 setTeamName={setTeamName} teamName={teamName}
                 setCards={setCards} cards={cards}
-                clear={clearHexesAndName}>    
+                clear={clearHexesAndName}
+                displayAlert={displayAlert}>    
             </TopPanel>
 
             <Grid addCardToHex={addCardToHex} hexes={hexes} swapHexes={swapHexes}></Grid>
