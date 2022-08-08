@@ -8,8 +8,10 @@ https://osiemde.github.io/tft-builder/
 
 Generally, thats how it looks like  
 
-  ![sdf](https://user-images.githubusercontent.com/99970419/183397036-074e7277-e7b6-4078-8901-50060b14b188.png)  
+  
+![nyga](https://user-images.githubusercontent.com/99970419/183474041-87c9b1ab-b2fc-4b8b-9d30-a44a19661340.png)
 
+ 
 It got some user warning behaviour  
 
   ![sdfsdfsd](https://user-images.githubusercontent.com/99970419/183397447-42b6a59a-d042-400c-8976-a5dfbf202b74.png)  
