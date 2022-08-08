@@ -8,7 +8,8 @@ https://osiemde.github.io/tft-builder/
 
 Generally, thats how it looks like  
 
-   ![sdfsdfsdf](https://user-images.githubusercontent.com/99970419/183471169-b4c8d9e0-cc49-4334-90c3-7c6026bee49c.png)  
+  
+![nyga](https://user-images.githubusercontent.com/99970419/183474041-87c9b1ab-b2fc-4b8b-9d30-a44a19661340.png)
 
  
 It got some user warning behaviour  
