@@ -20,7 +20,7 @@
 .card .item{
     height: 19px;
     width: 19px;
-    box-shadow: 11px 11px 28px 0px rgba(0, 0, 0, 1);
+    box-shadow: 8px 8px 15px -5px rgba(39, 39, 39, 1);
     border-width: 2px;
     border-color: inherit;
     margin: none;
