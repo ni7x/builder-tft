@@ -30,7 +30,8 @@ npm start
 
 ## TODO
 - Change dragging ghost image(clip-path gives ma cancer with this one).
-- Find some bugs.
+- Find some bugs. ✔️
 - Find better placement for items on card.
 - Saving to database functionality(most of the grid state is saved so shouldn't be a problem).
-- Showing errors to user
+- Showing errors to user ✔️
+- Change cards structure, add filtering and sorting to cards and items
