@@ -8,17 +8,18 @@ https://osiemde.github.io/tft-builder/
 
 Generally, thats how it looks like  
 
-  
-![nyga](https://user-images.githubusercontent.com/99970419/183474041-87c9b1ab-b2fc-4b8b-9d30-a44a19661340.png)
+  ![dsfdsds](https://user-images.githubusercontent.com/99970419/183588995-8b881688-0a32-4a98-b6ef-fdefc67265cd.png)
+
 
  
 It got some user warning behaviour  
+![fff](https://user-images.githubusercontent.com/99970419/183591576-a3cf0377-6b5f-421a-97cc-3a6388a199dc.png)
 
-  ![sdfsdfsd](https://user-images.githubusercontent.com/99970419/183397447-42b6a59a-d042-400c-8976-a5dfbf202b74.png)  
 
-And most of the stuff has descriptions  
 
-  ![sdfsadfdsfa](https://user-images.githubusercontent.com/99970419/183397704-68bad22e-39cd-4593-b2ed-4f7b070cdfe2.png)  
+Most of the stuff has descriptions  
+
+![s](https://user-images.githubusercontent.com/99970419/183590045-a2f33901-5502-4730-95b2-92174ea7daac.png)
 
 
 ### How to run
