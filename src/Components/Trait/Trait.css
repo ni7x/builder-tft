@@ -1,22 +1,52 @@
 .style0 {
-    background: url("./static/style0.png");
-    opacity: 30%;
+  background-color: #1b2021 ;
+  
 }
+
+.borderStyle0 {
+    background-color: #6e717e;
+    opacity: 0.4;
+}
+  
 
 .style1 {
-    background: url("./static/style1.png");
+    background-color: #A6674C;
+}
+  
+.borderStyle1 {
+    background-color: #BD9A7A;
 }
 
+
 .style2 {
-    background: url("./static/style2.png");
+    background-color: #8e9aaf;
+}
+
+
+.borderStyle2 {
+    background-color: #dee2e6;
 }
 
 .style3 {
-    background: url("./static/style3.png");
+    background-color: #cca000;
+}
+
+
+.borderStyle3 {
+    background-color: #f5cc00;
 }
 
 .style4 {
-    background: url("./static/style4.png");
+    background-color: #eaf4f4ef;
+}
+
+.style4 img{
+    filter: brightness(0%);
+}
+
+
+.borderStyle4 {
+    background-color: #fff;
 }
 
 .traits {
@@ -38,23 +68,32 @@
 }
 
 .traitImage {
-    width: 55px;
-    height: 55px;
+    width: 30px;
+    height: calc(30px * 1.1047);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    background-repeat: no-repeat;
-    background-size: 70%;
-    background-position: center;
-    float: left;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 1px;
+    margin-left: 2px;
+    margin-top: calc(2px * 1.1047);
 }
 
+.traitImageBorder {
+    margin-right: 12px;
+    margin-left: 10px;
+    margin-top: 8px;
+    width: 34px;
+    height: calc(34px * 1.1047);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    float: left;
+  }
+
+
 .traitImage img {
-    width: 19px;
-    height: 19px;
+    width: 21px;
+    height: 21px;
     margin-bottom: 0px;
+    
 }
 
 .traitText {
@@ -66,7 +105,7 @@
 }
 
 .occurencies {
-    margin-top: 12.5px;
+    margin-top: 13px;
     height: 25px;
     padding: 3px 8px;
     background-color: #495057;

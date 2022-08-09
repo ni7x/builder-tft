@@ -102,10 +102,11 @@ const Trait = (props) => {
                     <p>{description}</p>
                     <span className="stageDescription">{stagesDescription}</span>
                 </div>
-
-            <div className={"traitImage style" + style} onMouseEnter={(e)=>setModal(e)} onMouseLeave={(e)=>setHovered(false)}>
+            <div className={"traitImageBorder borderStyle" + style}> 
+                <div className={"traitImage style" + style} onMouseEnter={(e)=>setModal(e)} onMouseLeave={(e)=>setHovered(false)}>
                     <img alt={props.name} src={ process.env.PUBLIC_URL+"/static/traits/" + props.name.toLowerCase() + ".png"}></img>
-            </div> 
+                </div> 
+            </div>
             {style > 0 ?
                 <div className="traitText">
                     <div className="occurencies">
