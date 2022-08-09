@@ -35,3 +35,4 @@ npm start
 - Saving to database functionality(most of the grid state is saved so shouldn't be a problem).
 - Showing errors to user ✔️
 - Change cards structure, add filtering and sorting to cards and items
+- Better description hover mechanism
