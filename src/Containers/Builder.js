@@ -131,7 +131,7 @@ let Builder = () => {
             const isAmountCorrect = itemsValue + itemValue <= 3;
             if(isAmountCorrect === false){   
                 if(card.items.length === 1){
-                    displayAlert("Too many items! Keep in mind that TG counts as 3 items.");
+                    displayAlert("Too many items! TG takes 3 item slots.");
                     return false
                 }
                 else{
