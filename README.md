@@ -4,7 +4,7 @@
 Training project created with React(17).
 Use link below to see this crap in action.
 
-https://osiemde.github.io/tft-builder/
+https://ni7x.github.io/builder-tft/
 
 Generally, thats how it looks like  
 
