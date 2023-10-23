@@ -4,7 +4,6 @@
 Training React project
 
 https://ni7x.github.io/builder-tft/
-(https://user-images.githubusercontent.com/99970419/183588995-8b881688-0a32-4a98-b6ef-fdefc67265cd.png)
 
 Generally, thats how it looks like  
 
